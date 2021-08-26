@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import AisatsuView
+from . import views
 
 urlpatterns = [
-    path("",AisatsuView.as_view(),name="aisatsu"),
+    path('', views.index,name="index"),
 ]
