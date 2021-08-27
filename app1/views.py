@@ -19,4 +19,23 @@ def index(request):
         params['form'] = IdKensaku(request.POST)
     else:
         params['data'] = Touroku.objects.all()
+    return render(request, 'app1/index.html', params)
+'''
+def index(request):
+
+    params = {
+        'title':'生活データ',
+        'msg':'all records',
+        'form':KenkoForm(),
+        'data':[],
+    }
+
+    if (request.method =='POST'):
+        nametxt = request.POST['name']
+        item = Touroku.objects.get(name = nametxt)
+        params['data'] = [item]
+        params['form'] = KenkoForm(request.POST)
+    else:
+        params['data'] = Touroku.objects.values("id","name")#ここ
     return render(request, 'kenko/index.html', params)
+'''
